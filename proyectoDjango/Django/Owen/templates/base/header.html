@@ -1,0 +1,155 @@
+{% load static %}
+<header>
+    <div id="logo">
+        <a href="{% url "Owen" %}">
+            <img src="{% static "img/LOGO BLANCO..jpg" %}" alt="logo" width="250px">
+        </a>
+    </div>
+
+    <ul class="nav justify-content-center navbar-custom">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url "poleras" %}">POLERAS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "hoodies" %}">POLERONES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "nosotros" %}">SOBRE NOSOTROS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="openModal">REGISTRATE</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="#" id="openCart">
+            <img src="{% static "img/cart.png" %}" alt="cart" width="25px">
+          </a>
+        </li>
+    </ul>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form class="row g-3 needs-validation" novalidate>
+                      <div class="col-md-4">
+                          <label for="validationCustom01" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="validationCustom01" value="" required>
+                          <div class="valid-feedback">Looks good!</div>
+                      </div>
+                      <div class="col-md-4">
+                          <label for="validationCustom02" class="form-label">Apellido</label>
+                          <input type="text" class="form-control" id="validationCustom02" value="" required>
+                          <div class="valid-feedback">Looks good!</div>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationCustomUsername" class="form-label">Correo</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="validationCustomUsername" placeholder="@gmail.com o @hotmail.com" aria-describedby="correoHelp" required>
+                        </div>
+                        <div id="correoHelp" class="form-text">Ingrese un correo válido.</div>
+                    </div>                      
+                      <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                          <label for="inputPassword6" class="col-form-label">Contraseña</label>
+                        </div>
+                        <div class="col-auto">
+                          <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                          <span id="passwordHelpInline" class="form-text">
+                            La contraseña debe tener entre 8 y 20 caracteres.
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                          <div class="row g-3">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="region">Región:</label>
+                                      <select id="region" name="Region" class="form-control" required onchange="obtenerComunas()">
+                                          <option value="">Seleccione una Región</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="comuna">Comuna:</label>
+                                      <select id="comuna" name="comuna" class="form-control" required>
+                                          <option value="">Seleccione una Comuna</option>
+                                      </select>
+                                      <span id="comuna-error" class="error-message"></span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="validationCustom05" class="form-label">Codigo Postal</label>
+                        <input type="text" class="form-control" id="validationCustom05" required>
+                        <div id="codigoPostalError" class="error-message"></div>
+                    </div>                      
+                      <div class="col-12">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                              <label class="form-check-label" for="invalidCheck">Acepto los terminos y condiciones.</label>
+                              <div class="invalid-feedback">You must agree before submitting.</div>
+                          </div>
+                      </div>
+                      <div class="col-12 d-flex justify-content-between">
+                          <button class="btn btn-dark" type="submit">Registrarse</button>
+                          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                              Iniciar sesion
+                            </button>
+                      </div>                        
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Iniciar sesión</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="validationCustomUsername" class="form-label">Correo</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="validationCustomUsername" placeholder="@gmail.com o @hotmail.com" aria-describedby="correoHelp" required>
+                    </div>
+                    <div id="correoHelp" class="form-text">Ingrese un correo válido.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword6" class="form-label">Contraseña</label>
+                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    <div id="passwordHelpInline" class="form-text">
+                        La contraseña debe tener entre 8 y 20 caracteres.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark">Iniciar sesión</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">Tu Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Contenido del carrito aquí -->
+        <p>Aquí va el contenido del carrito...</p>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poleras</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/tshirts.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="icon" type="image/jpg" href="{% static 'img/logonegro.jpg' %}" />
+  </head>
+  <body>
+    {% include 'base/header.html' %}
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          
+
+          {% if poleras %}
+          {% for tmp in poleras %}
+          <div class="col-md-4">
+            <div class="card mb-4 mx-auto">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#{{tmp.id_polera}}"><img src="{% static 'img/' %}{{ tmp.rutaImg1 }}" class="card-img-top" alt="..." /></a>
+              <div class="card-body text-center">
+                <h5 class="card-title">{{tmp.nombre}}</h5>
+                <p id="product-price" class="card-text">${{tmp.precio}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif  %}
+          
+
+        </div>
+      </div>
+
+      {% if poleras %}
+      {% for tmp in poleras %}
+      <!-- Modal -->
+      <div class="modal fade" id="{{tmp.id_polera}}" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="product-name">{{tmp.nombre}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img id="product-image" src="{% static 'img/' %}{{tmp.rutaImg2}}" class="img-fluid" alt="Delantera" />
+                    <img src="{% static 'img/' %}{{tmp.rutaImg3}}" class="img-fluid mt-3" alt="Trasera" />
+                  </div>
+                  <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Detalles</button></h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">{{tmp.detalle}}</div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-item">
+                      <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">Guia de tallas</button></h2>
+                      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>Talla</th>
+                                <th>Pecho (cm)</th>
+                                <th>Cintura (cm)</th>
+                                <th>Cadera (cm)</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>S</td>
+                                <td>90</td>
+                                <td>80</td>
+                                <td>90</td>
+                              </tr>
+                              <tr>
+                                <td>M</td>
+                                <td>95</td>
+                                <td>85</td>
+                                <td>95</td>
+                              </tr>
+                              <tr>
+                                <td>L</td>
+                                <td>100</td>
+                                <td>90</td>
+                                <td>100</td>
+                              </tr>
+                              <tr>
+                                <td>XL</td>
+                                <td>105</td>
+                                <td>95</td>
+                                <td>105</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                    <div class="accordion-item">
+                      <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">Envio</button></h2>
+                      <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                          {{tmp.envio}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="desc1">
+                      <h3>{{tmp.descripcion}}</h3>
+                      
+                      <div id="size">
+                        <ul class="SizeSwatchList HorizontalList HorizontalList--spacingTight">
+                          <li class="HorizontalList__Item">
+                            <span class="SizeSwatch">S</span>
+                          </li>
+                          <li class="HorizontalList__Item">
+                            <span class="SizeSwatch">M</span>
+                          </li>
+                          <li class="HorizontalList__Item">
+                            <span class="SizeSwatch">L</span>
+                          </li>
+                          <li class="HorizontalList__Item">
+                            <span class="SizeSwatch">XL</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- Fin del bloque 'size' -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark custom-add-to-cart-btn">Añadir al carro</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif  %}
+    </main>
+
+    {% include 'base/footer.html' %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/selectSize.js' %}"></script>
+    <script src="{% static 'js/carrito.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(255, 255, 255);
+
+
+    #logo{
+        color: rgb(0, 0, 0);
+        text-align: center;
+        line-height: -20px;
+        margin: -40px;
+    }
+
+
+    .navbar-custom .nav-link {
+        color: black;
+        line-height: 5;
+        margin: 10px;
+    }
+    
+    .navbar-custom .nav-link:hover {
+        color: rgb(226, 224, 224); /* Cambia el color del texto en el hover */
+    }
+
+    /* Estilos personalizados para el botón BUY */
+    .btn-buy {
+        background-color: #000000; 
+        border-color: #000000; 
+        color: white; 
+    }
+
+    /* Estilos para el botón BUY cuando se pasa el mouse sobre él */
+    .btn-buy:hover {
+        background-color: #FFFFFF; 
+        border-color: #000000; 
+        color: #000000; 
+    }
+}

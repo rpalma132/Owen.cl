@@ -1,0 +1,131 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="{% static 'img/logonegro.jpg' %}" />
+</head>
+<body>
+    <div id="logo">
+        <a href="{% url 'Owen' %}">
+            <img src="{% static 'img/LOGO BLANCO..jpg' %}" alt="logo" width="250px">
+        </a>
+    </div>
+
+    <div id="desc1">
+        <h3>OWEN ES UNA MARCA DE ROPA URBANA FUNDADA EN EL CORAZÓN DE SANTIAGO CON EL OBJETIVO DE CREAR ALGO DIFERENTE.</h3>
+    </div>
+
+    <div id="desc2">
+        <h4>Tenemos la visión de ofrecer prendas de vestir de calidad y una expresión de arte en movimiento. 
+            Inspiradas en la energía vibrante de Santiago, buscamos entregar autenticidad, creatividad y compromiso. 
+            Cada prenda cuenta con una historia visual que refleja la diversidad y vitalidad de la moda urbana.</h4>
+    </div>
+
+    <div class="container">
+        <div class="text-container">
+            <div id="scrollingText" class="scrolling-text">
+                <div class="char-1">b</div>
+                <div class="char-1">y</div>
+                <div class="char-1">&nbsp;</div>
+                <div class="char-1">a</div>
+                <div class="char-1">r</div>
+                <div class="char-1">t</div>
+                <div class="char-1">i</div>
+                <div class="char-1">s</div>
+                <div class="char-1">t</div>
+                <div class="char-1">s</div>
+                <div class="char-1">,</div>
+                <div class="char-1">&nbsp;</div>
+                <div class="char-1">f</div>
+                <div class="char-1">o</div>
+                <div class="char-1">r</div>
+                <div class="char-1">&nbsp;</div>
+                <div class="char-1">a</div>
+                <div class="char-1">r</div>
+                <div class="char-1">t</div>
+                <div class="char-1">i</div>
+                <div class="char-1">s</div>
+                <div class="char-1">t</div>
+                <div class="char-1">s</div>
+                <div class="char-1">.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gif">
+        <img src="{% static 'img/owen giratorio.gif' %}" alt="">
+    </div>
+
+    <div id="desc3">
+        <h3>CON OWEN NO SOLO VISTES, SINO QUE TAMBIÉN TE CONVIERTES EN UNA OBRA DE ARTE DENTRO DEL PAISAJE URBANO.</h3>
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/aboutus.js' %}"></script>
+</body>
+</html>
+
+
+
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Página Web</title>
+    
+    {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    
+</head>
+<body>
+    <header>
+        <!-- Logo Centrado -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center my-3">
+                    <a href="{% url 'Owen' %}">
+                        <img src="{% static 'img/LOGO BLANCO..jpg' %}" alt="logo" width="250px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <!-- Bloque Vertical Izquierdo -->
+                <div class="col-md-3 p-3">
+                    <h1>OWEN ES UNA MARCA DE ROPA URBANA FUNDADA EN EL CORAZÓN DE SANTIAGO CON EL OBJETIVO DE CREAR ALGO DIFERENTE.</h1>
+                </div>
+                <!-- Bloque Derecho con Texto y Imagen -->
+                <div class="col-md-9">
+                    <div class="p-3">
+                        
+                        <h5>Tenemos la visión de ofrecer prendas de vestir de calidad y una expresión de arte en movimiento. 
+                            Inspiradas en la energía vibrante de Santiago, buscamos entregar autenticidad, creatividad y compromiso. 
+                            Cada prenda cuenta con una historia visual que refleja la diversidad y vitalidad de la moda urbana.</h5>
+                        <img src="{% static 'img/owen giratorio.gif' %}" alt="Descripción de la imagen" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+            <!-- Espacio para texto adicional centrado -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 text-center">
+                    <h3>CON OWEN NO SOLO VISTES, SINO QUE TAMBIÉN TE CONVIERTES EN UNA OBRA DE ARTE DENTRO DEL PAISAJE URBANO.</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript de Bootstrap y dependencias -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
