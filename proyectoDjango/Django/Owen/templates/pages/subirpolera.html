@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Agregar Polera</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <style>
+        .btn-custom {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Agregar Polera</h1>
+        <form action="{% url 'subirpolera' %}" method="post" class="mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" maxlength="20" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="detalle">Detalle:</label>
+                <textarea class="form-control" id="detalle" name="detalle" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" class="form-control" id="precio" name="precio" required>
+            </div>
+            <div class="form-group">
+                <label for="envio">Envío:</label>
+                <textarea class="form-control" id="envio" name="envio" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rutaImg1">Ruta de Imagen 1:</label>
+                <input type="text" class="form-control" id="rutaImg1" name="rutaImg1" maxlength="100" required>
+            </div>
+            <div class="form-group">
+                <label for="rutaImg2">Ruta de Imagen 2:</label>
+                <input type="text" class="form-control" id="rutaImg2" name="rutaImg2" maxlength="100" required>
+            </div>
+            <div class="form-group">
+                <label for="rutaImg3">Ruta de Imagen 3:</label>
+                <input type="text" class="form-control" id="rutaImg3" name="rutaImg3" maxlength="100" required>
+            </div>
+            <button type="submit" class="btn btn-custom">Agregar Polera</button>
+        </form>
+    </div>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+

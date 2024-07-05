@@ -22,3 +22,41 @@ def hoodies(request):
 def nosotros(request):
     context = {}
     return render(request, "pages/nosotros.html", context)
+
+def subirpolera(request):
+
+    if request.method != "POST":
+        context = {}
+        return render(request, "pages/subirpolera.html", context)
+
+    else:
+
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+        detalle = request.POST.get('detalle')
+        precio = request.POST.get('precio')
+        envio = request.POST.get('envio')
+        imagen1 = request.POST.get('rutaImg1')
+        imagen2 = request.POST.get('rutaImg2')
+        imagen3 = request.POST.get('rutaImg3')
+
+
+        obj = Polera.objects.create(
+
+            nombre= nombre,
+            descripcion = descripcion,
+            detalle = detalle,
+            precio = precio,
+            envio = envio,
+            rutaImg1 = imagen1,
+            rutaImg2= imagen2,
+            rutaImg3 = imagen3,
+
+
+        )
+        obj.save
+        context = {
+            "mensaje": "Registro Exitoso",
+        }
+        context = {}
+    return render(request, "pages/subirpolera.html", context)
