@@ -132,3 +132,6 @@ def registro(request):
             "mensaje": "Registro Exitoso",
         }
         return render(request, "pages/owen.html", context)
+
+
+""" el dios del trap """
