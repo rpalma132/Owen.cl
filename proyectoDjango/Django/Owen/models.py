@@ -39,5 +39,12 @@ class Poleron(models.Model):
             + str(self.precio)
         )
 
+class Usuario(models.Model):
+    nombre = models.CharField(max_length=75, null=False, blank=False)
+    apellido = models.CharField(max_length=75, null=False, blank=False)
+    correo = models.EmailField(unique=True, null=False, blank=False)
+    contraseña = models.CharField(max_length=20, null=False, blank=False)
+    codigo_postal = models.CharField(max_length=10, null=False, blank=False)
 
-
+    def __str__(self):
+        return f'{self.nombre} {self.apellido}'
